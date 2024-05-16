@@ -1,0 +1,11 @@
+1. 3 pag-espacificaciónes y seguimiento del proyecto
+2. 1 pag del diagrama
+3. Pensamiento computaciónal
+
+mensaje con proyecto en clasroom
+/**
+Grupo:
+-juan
+-alejo
+*Lin del repositorio*
+*/
