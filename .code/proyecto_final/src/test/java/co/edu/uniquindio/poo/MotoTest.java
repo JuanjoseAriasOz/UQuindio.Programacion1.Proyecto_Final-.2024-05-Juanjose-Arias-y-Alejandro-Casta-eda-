@@ -5,11 +5,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 
-public class ParqueaderoTest {
-        private static final Logger LOG = Logger.getLogger(ParqueaderoTest.class.getName());
+
+public class MotoTest {
+
+        private static final Logger LOG = Logger.getLogger(MotoTest.class.getName());
         @Test
-        public void DatosCompletosPaqueadero(){
-            LOG.info("Prueba datoscompletos de parqueadero");
+        public void DatosCompletosMoto(){
+            LOG.info("prueba de datosCompletos de Moto");
             Parqueadero parqueadero = new Parqueadero("ParqueosInc");
             assertEquals("ParqueosInc", parqueadero.getNombre());
         }
