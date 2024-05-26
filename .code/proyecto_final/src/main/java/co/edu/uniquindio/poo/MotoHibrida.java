@@ -4,7 +4,7 @@ package co.edu.uniquindio.poo;
 public class MotoHibrida extends Vehiculo {
     private double velocidadMaxima;
 
-    public MotoHibrida(String placa, String modelo, String propietario, double velocidadMaxima) {
+    public MotoHibrida(String placa, String modelo, double velocidadMaxima) {
         super(placa, modelo);
         this.velocidadMaxima = velocidadMaxima;
     }

@@ -184,7 +184,7 @@ public class Parqueadero {
                 case 2:
                     mensaje.append("Tipo de vehículo: Moto Híbrida\n");
                     String velocidadMaximaHibridaStr = JOptionPane.showInputDialog("Ingrese la velocidad máxima de la moto híbrida:");
-                    vehiculo = new MotoHibrida(placa, modelo, propietario, Double.parseDouble(velocidadMaximaHibridaStr));
+                    vehiculo = new MotoHibrida(placa, modelo, Double.parseDouble(velocidadMaximaHibridaStr));
                     tarifaPorHora = 7500;
                     break;
                 default:
