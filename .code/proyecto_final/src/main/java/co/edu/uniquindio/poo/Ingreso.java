@@ -1,38 +1,56 @@
 package co.edu.uniquindio.poo;
 
+import java.time.LocalDateTime;
+
 public class Ingreso {
-    private Parqueadero parqueadero;
+    private Vehiculo vehiculo;
+    private Puesto puesto;
+    //LocalDatetime esto es para decir a que hora entro el vehiculo, pero aun no sé como se usa bien lo dejare ahi por el momento
+    private LocalDateTime horaIngreso;
+    private LocalDateTime horaSalida;
 
-    public Ingreso(Parqueadero parqueadero) {
-        this.parqueadero = parqueadero;
+    // Constructor
+    public Ingreso(Vehiculo vehiculo, Puesto puesto) {
+        this.vehiculo = vehiculo;
+        this.puesto = puesto;
+        this.horaIngreso = LocalDateTime.now();  // Registra la hora actual como hora de ingreso
     }
 
-    public void registrarIngreso(String vehiculo) {
-        int[] puesto = parqueadero.asignarPuesto(vehiculo);
-        if (puesto != null) {
-            System.out.println("Vehículo " + vehiculo + " asignado al puesto: [" + puesto[0] + ", " + puesto[1] + "]");
-        } else {
-            System.out.println("No hay puestos disponibles para el vehículo " + vehiculo);
+    // Getters
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public Puesto getPuesto() {
+        return puesto;
+    }
+
+    public LocalDateTime getHoraIngreso() {
+        return horaIngreso;
+    }
+
+    public LocalDateTime getHoraSalida() {
+        return horaSalida;
+    }
+//aún no sé como usar lo de abajo lo deje ahi por el momento estoy viendo videos de youtube para entender pero eso esta muy raro, estoy que descarto esta idea
+
+    // Método para registrar la hora de salida
+    public void registrarSalida() {
+        this.horaSalida = LocalDateTime.now();  // Registra la hora actual como hora de salida
+    }
+
+    // Método para calcular el costo del parqueo
+    public double calcularCosto() {
+        if (horaSalida == null) {
+            registrarSalida();  // Si no se ha registrado la salida, se registra ahora
         }
+        long horas = java.time.Duration.between(horaIngreso, horaSalida).toHours();  // Calcula la duración en horas
+        return horas * vehiculo.getTarifaPorHora();  // Calcula el costo basado en la tarifa por hora
     }
 
-    public boolean verificarPuesto(int fila, int columna) {
-        return parqueadero.estaOcupado(fila, columna);
-    }
-
-    public void asignarPuesto(String vehiculo, int fila, int columna) {
-        if (parqueadero.agregarVehiculo(fila, columna, vehiculo)) {
-            System.out.println("Vehículo " + vehiculo + " asignado al puesto: [" + fila + ", " + columna + "]");
-        } else {
-            System.out.println("El puesto [" + fila + ", " + columna + "] está ocupado.");
-        }
-    }
-
-    public static void main(String[] args) {
-        Parqueadero parqueadero = new Parqueadero();
-        Ingreso ingreso = new Ingreso(parqueadero);
-        ingreso.registrarIngreso("Carro1");
-        ingreso.mostrarEstado();
+    // Método estático para registrar el ingreso
+    public static void registrarIngreso(Vehiculo vehiculo, Puesto puesto) {
+        puesto.setOcupado(true);  // Marcar el puesto como ocupado
+        System.out.println("Ingreso registrado para el vehículo con placa " + vehiculo.getPlaca() + " en el puesto " + puesto.getNombre());
     }
 }
-

@@ -1,26 +1,17 @@
 package co.edu.uniquindio.poo;
-
+//clase hija carro
 public class Carro extends Vehiculo {
+    private static double tarifaPorHora = 2000;  
 
-
-    public Carro(String placa, String modelo){
-        super(placa, modelo);
-        assert placa != null && !placa.isBlank();
-        assert modelo != null && !modelo.isBlank();
+    public Carro(String placa, String modelo, String propietario) {
+        super(placa, modelo, propietario);
     }
-    
+    public static void setTarifaPorHora(double tarifa) {
+        tarifaPorHora = tarifa;
+    }
+
     @Override
-    public void encender(){
-        System.out.println("carro encendido");
-
-    /**
-     * metodos get para placa y modelo 
-    */
-    }
-    public String getPlaca(){
-        return placa;
-    }
-    public String getModelo(){
-        return modelo;
+    public double getTarifaPorHora() {
+        return tarifaPorHora;
     }
 }
