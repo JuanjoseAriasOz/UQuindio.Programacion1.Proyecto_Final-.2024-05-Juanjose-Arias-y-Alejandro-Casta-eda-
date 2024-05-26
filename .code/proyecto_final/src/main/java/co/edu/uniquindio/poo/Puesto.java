@@ -1,53 +1,40 @@
 package co.edu.uniquindio.poo;
 
 public class Puesto {
-    private String posicion;
+    private String[] posicion;
     private boolean ocupado;
 
     // Constructor
-    public Puesto(String posicion, boolean ocupado) {
+    public Puesto(String[] posicion, boolean ocupado) {
         this.posicion = posicion;
         this.ocupado = ocupado;
     }
 
-    // Getters
-    public String getPosicion() {
-        return posicion;
-    }
-
-    public boolean getOcupado() {
-        return ocupado;
-    }
-
     // Método para ocupar el puesto
     public void ocuparPuesto() {
-        if (!ocupado) {
-            ocupado = true;
-            System.out.println(posicion);
-        } else {
-            System.out.println(posicion);
-        }
+        this.ocupado = true;
     }
 
     // Método para desocupar el puesto
     public void desocuparPuesto() {
-        if (ocupado) {
-            ocupado = false;
-            System.out.println(posicion );
-        } else {
-            System.out.println(posicion);
-        }
+        this.ocupado = false;
     }
 
-    // Setter para marcar el puesto como ocupado o desocupado
+    // Getters y Setters
+    public String[] getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(String[] posicion) {
+        this.posicion = posicion;
+    }
+
+    public boolean isOcupado() {
+        return ocupado;
+    }
+
     public void setOcupado(boolean ocupado) {
         this.ocupado = ocupado;
     }
-
-    // Getter para obtener el nombre del puesto
-    public String getNombre() {
-        return posicion;
-    }
 }
-
 

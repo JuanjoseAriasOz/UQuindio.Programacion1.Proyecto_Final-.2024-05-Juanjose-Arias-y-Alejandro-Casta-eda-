@@ -2,7 +2,7 @@ package co.edu.uniquindio.poo;
 //clase hija carro
 public class Carro extends Vehiculo {
 
-    public Carro(String placa, String modelo, String propietario) {
-        super(placa, modelo, propietario);
+    public Carro(String placa, String modelo) {
+        super(placa, modelo);
     }
 }

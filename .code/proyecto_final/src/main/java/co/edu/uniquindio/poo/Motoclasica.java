@@ -5,8 +5,8 @@ package co.edu.uniquindio.poo;
 public class Motoclasica extends Vehiculo {
     private double velocidadMaxima;
 
-    public Motoclasica(String placa, String modelo, String propietario, double velocidadMaxima) {
-        super(placa, modelo, propietario);
+    public Motoclasica(String placa, String modelo, double velocidadMaxima) {
+        super(placa, modelo);
         this.velocidadMaxima = velocidadMaxima;
     }
 

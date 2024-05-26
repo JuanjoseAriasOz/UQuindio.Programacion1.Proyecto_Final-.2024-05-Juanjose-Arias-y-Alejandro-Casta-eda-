@@ -5,7 +5,7 @@ public class MotoHibrida extends Vehiculo {
     private double velocidadMaxima;
 
     public MotoHibrida(String placa, String modelo, String propietario, double velocidadMaxima) {
-        super(placa, modelo, propietario);
+        super(placa, modelo);
         this.velocidadMaxima = velocidadMaxima;
     }
 

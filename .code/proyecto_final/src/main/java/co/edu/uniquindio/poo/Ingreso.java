@@ -38,17 +38,9 @@ public class Ingreso {
     public void registrarSalida() {
         this.horaSalida = LocalDateTime.now();  // Registra la hora actual como hora de salida
     }
-
-    // Método para calcular el costo del parqueo
-    public void calcularCosto() {
-        if (horaSalida == null) {
-            registrarSalida();  // Si no se ha registrado la salida, se registra ahora
-        }
-    }
-
     // Método estático para registrar el ingreso
     public static void registrarIngreso(Vehiculo vehiculo, Puesto puesto) {
         puesto.setOcupado(true);  // Marcar el puesto como ocupado
-        System.out.println("Ingreso registrado para el vehículo con placa " + vehiculo.getPlaca() + " en el puesto " + puesto.getNombre());
+        System.out.println("Ingreso registrado para el vehículo con placa " + vehiculo.getPlaca());
     }
 }

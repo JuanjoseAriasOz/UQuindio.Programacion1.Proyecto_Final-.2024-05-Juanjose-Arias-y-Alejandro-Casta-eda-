@@ -8,14 +8,13 @@ import java.time.LocalDateTime;
  public class Vehiculo {
      private String placa;
      private String modelo;
-     private String propietario;
+     
      private LocalDateTime horaEntrada;
      private LocalDateTime horaSalida;
  
-     public Vehiculo(String placa, String modelo, String propietario) {
+     public Vehiculo(String placa, String modelo) {
          this.placa = placa;
          this.modelo = modelo;
-         this.propietario = propietario;
      }
  
      public String getPlaca() {
@@ -24,10 +23,6 @@ import java.time.LocalDateTime;
  
      public String getModelo() {
          return modelo;
-     }
- 
-     public String getPropietario() {
-         return propietario;
      }
  
      public LocalDateTime getHoraEntrada() {
@@ -45,20 +40,5 @@ import java.time.LocalDateTime;
      public void setHoraSalida(LocalDateTime horaSalida) {
          this.horaSalida = horaSalida;
      }
-
-    public Object getgananciasCarro() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getgananciasCarro'");
-    }
-
-    public Object getgananciasmotoclasica() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getgananciasmotoclasica'");
-    }
-
-    public Object getgananciasmotoHibrida() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getgananciasmotoHibrida'");
-    }
  }
  
