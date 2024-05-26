@@ -15,7 +15,7 @@ public class Puesto {
         return posicion;
     }
 
-    public boolean isOcupado() {
+    public boolean getOcupado() {
         return ocupado;
     }
 

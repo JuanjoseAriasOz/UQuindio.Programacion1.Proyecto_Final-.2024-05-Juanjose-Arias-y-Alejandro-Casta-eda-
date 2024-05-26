@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo;
-
+//variables o atributos de propietario.
 public class Propietario {
     private String nombre;
     private String apellido;

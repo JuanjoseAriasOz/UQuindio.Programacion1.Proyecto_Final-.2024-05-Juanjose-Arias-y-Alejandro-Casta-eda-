@@ -40,12 +40,10 @@ public class Ingreso {
     }
 
     // Método para calcular el costo del parqueo
-    public double calcularCosto() {
+    public void calcularCosto() {
         if (horaSalida == null) {
             registrarSalida();  // Si no se ha registrado la salida, se registra ahora
         }
-        long horas = java.time.Duration.between(horaIngreso, horaSalida).toHours();  // Calcula la duración en horas
-        return horas * vehiculo.getTarifaPorHora();  // Calcula el costo basado en la tarifa por hora
     }
 
     // Método estático para registrar el ingreso
