@@ -7,11 +7,33 @@ import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+
 
 public class ParqueaderoTest {
 
     private static final Logger LOG = Logger.getLogger(ParqueaderoTest.class.getName());
+        private Parqueadero parqueadero;
+    
+        @BeforeEach
+        public void testAsignarPuesto() {
+            parqueadero = new Parqueadero("Mi Parqueadero", 5, 5);
+        }
+    
+        @Test
+        public void testAgregarPuesto() {
+            // Crear un nuevo puesto
+            Puesto puesto = new Puesto("Puesto 1-1", false);
+    
+            // Agregar el puesto al parqueadero en la posición (0, 0)
+            parqueadero.agregarPuesto(puesto, 0, 0);
+    
+            // Verificar si el puesto se agregó correctamente al parqueadero
+            assertEquals(puesto, parqueadero.getPuesto()[0][0]);
 
+    }
+    
     @Test
     public void datosCompletosParqueadero(){
         LOG.info("prueba datos correctos en parqueadero");

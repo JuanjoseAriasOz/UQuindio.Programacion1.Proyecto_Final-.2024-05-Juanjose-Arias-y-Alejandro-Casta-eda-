@@ -49,6 +49,10 @@ public class Parqueadero {
             }
         }
     }
+     //metodo para obtener un puesto
+    public Object[][] getPuesto() {
+        return puestos;
+    } 
     //metodo para obtener el nombre
     public String getNombre() {
         return nombre;
