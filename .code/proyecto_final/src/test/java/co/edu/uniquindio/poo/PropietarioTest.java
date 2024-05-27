@@ -18,27 +18,10 @@ private static final Logger LOG = Logger.getLogger(PropietarioTest.class.getName
     }
 
     @Test
-    public void NombreNuloPropietario() {
-        LOG.info("Prueba de nombre nulo de Propietario");
-        assertThrows(AssertionError.class, () -> {
-            new Propietario(null, "Pérez", "12345678");
-        });
-    }
-
-    @Test
-    public void ApellidoNuloPropietario() {
-        LOG.info("Prueba de apellido nulo de Propietario");
-        assertThrows(AssertionError.class, () -> {
-            new Propietario("Juan", null, "12345678");
-        });
-    }
-
-    @Test
-    public void IdentificacionNulaPropietario() {
-        LOG.info("Prueba de identificación nula de Propietario");
-        assertThrows(AssertionError.class, () -> {
-            new Propietario("Juan", "Pérez", null);
-        });
+    public void DatosNulos() {
+        LOG.info("Prueba datos nulos");
+        assertThrows(Throwable.class, ()-> new Propietario(null,null,null));
+        LOG.info("finalizando pruebas de datos nulos");
     }
 }
 

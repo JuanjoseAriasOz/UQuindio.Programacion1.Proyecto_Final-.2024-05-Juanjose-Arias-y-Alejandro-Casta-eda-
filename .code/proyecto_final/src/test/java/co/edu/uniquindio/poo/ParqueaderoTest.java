@@ -4,36 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 
 
 public class ParqueaderoTest {
 
-    private static final Logger LOG = Logger.getLogger(ParqueaderoTest.class.getName());
-        private Parqueadero parqueadero;
-    
-        @BeforeEach
-        public void testAsignarPuesto() {
-            parqueadero = new Parqueadero("Mi Parqueadero", 5, 5);
-        }
-    
-        @Test
-        public void testAgregarPuesto() {
-            // Crear un nuevo puesto
-            Puesto puesto = new Puesto("Puesto 1-1", false);
-    
-            // Agregar el puesto al parqueadero en la posición (0, 0)
-            parqueadero.agregarPuesto(puesto, 0, 0);
-    
-            // Verificar si el puesto se agregó correctamente al parqueadero
-            assertEquals(puesto, parqueadero.getPuesto()[0][0]);
-
-    }
-    
     @Test
     public void datosCompletosParqueadero(){
         LOG.info("prueba datos correctos en parqueadero");
@@ -59,82 +37,36 @@ public class ParqueaderoTest {
         parqueadero.asignarPuesto(carro, tiempoEstadia, tarifaPorHora);
         Puesto puesto = parqueadero.obtenerPuestoDisponible();
 
-        Assertions.assertEquals("AAA 111", carro.getPlaca());
-        Assertions.assertEquals(parqueadero.obtenerVehiculos().get(0).getHoraEntrada().toLocalDate(), LocalDateTime.now().toLocalDate());
+        assertEquals("AAA 111", carro.getPlaca());
+        assertEquals(parqueadero.obtenerVehiculos().get(0).getHoraEntrada().toLocalDate(), LocalDateTime.now().toLocalDate());
         assertTrue(!puesto.getOcupado());
     }
-/**
-    public void setUp() {
+
+    private static final Logger LOG = Logger.getLogger(ParqueaderoTest.class.getName());
+    private Parqueadero parqueadero;
+
+    @BeforeEach
+    public void testAsignarPuesto() {
+        parqueadero = new Parqueadero("Mi Parqueadero", 5, 5);
     }
 
-    public void testAsignarPuestoCarro() {
-        double tarifaPorHora = 8500;
-        int tiempoEstadia = 2; // 2 horas
-
-        parqueadero.asignarPuesto(carro, tiempoEstadia, tarifaPorHora);
-        Puesto puesto = parqueadero.obtenerPuestoDisponible();
-
-        Assertions.assertEquals(carro.getPlaca(), parqueadero.obtenerVehiculos().get(0).getPlaca());
-        Assertions.assertEquals(parqueadero.obtenerVehiculos().get(0).getHoraEntrada().toLocalDate(), LocalDateTime.now().toLocalDate());
-        assertNotNull(puesto);
-        assertTrue(puesto.getOcupado());
+    @Test
+    public void testAgregarPuesto() {
+        Puesto puesto = new Puesto("Puesto 1-1", false);
+        parqueadero.agregarPuesto(puesto, 0, 0);
+        assertEquals(puesto, parqueadero.getPuesto()[0][0]);
     }
-
-    public void testGananciasDiariasCarro() {
-        double tarifaPorHora = 8500;
-        int tiempoEstadia = 2; // 2 horas
-
-        parqueadero.asignarPuesto(carro, tiempoEstadia, tarifaPorHora);
-
-        assertEquals(17000, parqueadero.obtenerGananciasDiarias(), 0);
-        assertEquals(17000, parqueadero.obtenerGananciasDiarias(), 0);
+    @Test
+    public void Filasnulas(){
+        LOG.info("Iniciando prueba de filas nulas");
+        assertThrows(Throwable.class, ()-> new Parqueadero("Mi Parqueadero", 0, 5));
+        LOG.info("Finalizando prueba de tfilas nulas");
     }
-
-   
-    private void assertEquals(int i, Object obtenerGananciasDiarias, int j) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'assertEquals'");
+    @Test
+    public void Columnasnulas(){
+        LOG.info("Iniciando prueba de las columnas nulas");
+        assertThrows(Throwable.class, ()-> new Parqueadero("Mi Parqueadero", 5, 0));
+        LOG.info("Finalizando prueba de columnas nulas");
     }
-
-    public void testAsignarPuestoMotoClasica() {
-        double tarifaPorHora = 6000;
-        int tiempoEstadia = 2; // 2 horas
-
-        parqueadero.asignarPuesto(motoClasica, tiempoEstadia, tarifaPorHora);
-        Puesto puesto = parqueadero.obtenerPuestoDisponible();
-
-        Assertions.assertEquals(motoClasica.getPlaca(), parqueadero.obtenerVehiculos().get(0).getPlaca());
-        assertNotNull(puesto);
-        assertTrue(puesto.getOcupado());
-    }
-
-   
-    public void testGananciasDiariasMotoClasica() {
-        double tarifaPorHora = 6000;
-        int tiempoEstadia = 2; // 2 horas
-
-        parqueadero.asignarPuesto(motoClasica, tiempoEstadia, tarifaPorHora);
-
-        assertEquals(12000, parqueadero.obtenerGananciasDiarias(), 0);
-        assertEquals(12000, parqueadero.obtenerGananciasDiariasMotoclasica(), 0);
-    }
-
-    
-    public void testCambioDia() {
-        double tarifaPorHoraCarro = 8500;
-        double tarifaPorHoraMotoClasica = 6000;
-        int tiempoEstadia = 2; // 2 horas
-
-        parqueadero.asignarPuesto(carro, tiempoEstadia, tarifaPorHoraCarro);
-        parqueadero.asignarPuesto(motoClasica, tiempoEstadia, tarifaPorHoraMotoClasica);
-
-        parqueadero.cambiarDia();
-
-        assertEquals(0, parqueadero.obtenerGananciasDiarias(), 0);
-        assertEquals(29000, parqueadero.obtenerGananciasDiarias(), 0);
-    }
-
-  */ 
-
 }
 
