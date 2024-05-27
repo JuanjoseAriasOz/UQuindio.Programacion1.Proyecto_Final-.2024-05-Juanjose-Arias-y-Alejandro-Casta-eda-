@@ -39,8 +39,8 @@ public class Parqueadero {
         posicionVehiculos = new HashMap<>();
 
         assert nombre != null && !nombre.isBlank();
-        assert filas < 0;
-        assert columnas < 0 ;
+        assert filas > 0;
+        assert columnas > 0 ;
 
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {

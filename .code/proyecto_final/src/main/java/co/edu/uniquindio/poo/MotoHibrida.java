@@ -9,7 +9,7 @@ public class MotoHibrida extends Vehiculo {
         this.velocidadMaxima = velocidadMaxima;
         assert placa != null && !placa.isBlank();
         assert modelo != null && !modelo.isBlank();    
-        assert velocidadMaxima < 0;
+        assert velocidadMaxima >= 0;
     }
 
     public double getVelocidadMaxima() {
