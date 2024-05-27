@@ -12,6 +12,7 @@ public class PuestoTest {
     //Test para probar el funcionamiento del metodo Puesto
     @Test
     public void testDatosCompletosPuesto() {
+        LOG.info("Inicio de prueba datos completos de puesto");
         Parqueadero parqueadero = new Parqueadero("ParqueosInc", 2, 2);
         Carro carro = new Carro("JHN-117", "Mark 7");
         parqueadero.asignarPuesto(carro, 3, 4000);
@@ -22,6 +23,7 @@ public class PuestoTest {
     //Test para ver si un puesto sigue ocupado o no.
     @Test
     public void testOcuparPuestoYaOcupado() {
+        LOG.info("Inicio de prueba de verificacion de puesto");
         Puesto puesto = new Puesto("Puesto 4", true);
         puesto.ocuparPuesto();
         assertEquals(true, puesto.getOcupado());
