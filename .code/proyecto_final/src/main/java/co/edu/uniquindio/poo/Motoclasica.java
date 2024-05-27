@@ -8,6 +8,9 @@ public class Motoclasica extends Vehiculo {
     public Motoclasica(String placa, String modelo, double velocidadMaxima) {
         super(placa, modelo);
         this.velocidadMaxima = velocidadMaxima;
+        assert placa != null && !placa.isBlank();
+        assert modelo != null && !modelo.isBlank();    
+        assert velocidadMaxima < 0;
     }
 
     public double getVelocidadMaxima() {

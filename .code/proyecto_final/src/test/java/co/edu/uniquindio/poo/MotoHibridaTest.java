@@ -11,8 +11,9 @@ public class MotoHibridaTest {
     @Test
     public void DatosCompletosMotoH(){
         LOG.info("prueba de datosCompletos de Moto Hibrida");
-        Parqueadero parqueadero = new Parqueadero("ParqueosInc");
-        assertEquals("ParqueosInc", parqueadero.getNombre());
+        MotoHibrida motoHibrida = new MotoHibrida("HDP 123", "jawar", 15);
+        assertEquals("HDP 123", motoHibrida.getPlaca());
+        assertEquals("jawar", motoHibrida.getModelo());
     }
 
 }

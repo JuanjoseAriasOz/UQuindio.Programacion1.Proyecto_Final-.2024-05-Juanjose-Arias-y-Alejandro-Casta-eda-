@@ -9,6 +9,10 @@ public class Propietario {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
+
+        assert nombre != null && !nombre.isBlank();
+        assert apellido != null && !apellido.isBlank();
+        assert identificacion != null && !identificacion.isBlank();
     }
 
     public String getNombre() {

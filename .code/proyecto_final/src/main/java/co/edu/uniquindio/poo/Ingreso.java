@@ -32,7 +32,9 @@ public class Ingreso {
     public LocalDateTime getHoraSalida() {
         return horaSalida;
     }
-//aún no sé como usar lo de abajo lo deje ahi por el momento estoy viendo videos de youtube para entender pero eso esta muy raro, estoy que descarto esta idea
+    
+    //aún no sé como usar lo de abajo lo deje ahi por el momento estoy viendo videos de youtube para entender pero eso esta muy raro, estoy que descarto esta idea
+    //okis
 
     // Método para registrar la hora de salida
     public void registrarSalida() {

@@ -38,6 +38,10 @@ public class Parqueadero {
         //para mapear las posiciones de los puestos del parqueadero a los vehículos estacionados en esos puestos.
         posicionVehiculos = new HashMap<>();
 
+        assert nombre != null && !nombre.isBlank();
+        assert filas < 0;
+        assert columnas < 0 ;
+
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
                 //Para crear un nuevo puesto.
@@ -45,19 +49,19 @@ public class Parqueadero {
             }
         }
     }
-//metodo para obtener el nombre
+    //metodo para obtener el nombre
     public String getNombre() {
         return nombre;
     }
-//metodo para agregar un puesto
+    //metodo para agregar un puesto
     public void agregarPuesto(Puesto puesto, int i, int j) {
         puestos[i][j] = puesto;
     }
-//metodo para registrar el vehivulo
+    //metodo para registrar el vehivulo
     public void registrarVehiculo(Vehiculo vehiculo) {
         vehiculos.add(vehiculo);
     }
-//metodo para obtener Un puesto
+    //metodo para obtener Un puesto
     public Puesto obtenerPuestoDisponible() {
         for (int i = 0; i < puestos.length; i++) {
             for (int j = 0; j < puestos[i].length; j++) {
@@ -68,7 +72,7 @@ public class Parqueadero {
         }
         return null;
     }
-//metodo para asignar un puesto.
+    //metodo para asignar un puesto.
     public void asignarPuesto(Vehiculo vehiculo, int tiempoEstadia, double tarifaPorHora) {
         Puesto puestoDisponible = obtenerPuestoDisponible();
         if (puestoDisponible != null) {
@@ -77,7 +81,7 @@ public class Parqueadero {
             vehiculo.setHoraEntrada(LocalDateTime.now());
             double tarifaTotal = tiempoEstadia * tarifaPorHora;
             this.gananciasDiarias += tarifaTotal;
-//instanciar los vehiculos para poderlos asignar a un lugar
+            //instanciar los vehiculos para poderlos asignar a un lugar
             if (vehiculo instanceof Carro) {
                 this.gananciasCarros += tarifaTotal;
             } else if (vehiculo instanceof Motoclasica) {
@@ -88,13 +92,13 @@ public class Parqueadero {
 
             String posicion = puestoDisponible.getPosicion();
             posicionVehiculos.put(posicion, vehiculo);
-//mensaje que contiene la placa del vehivulo diciendo que ha sido asignado a cierto puesto.
+    //mensaje que contiene la placa del vehivulo diciendo que ha sido asignado a cierto puesto.
             System.out.println("Vehículo con placa " + vehiculo.getPlaca() + " ha sido asignado al puesto " + posicion);
         } else {
             System.out.println("No hay puestos disponibles.");
         }
     }
-//metodo para decir que un vehiculo ha salido de cierto puesto.
+    //metodo para decir que un vehiculo ha salido de cierto puesto.
     public static void asignarPuesto(Vehiculo vehiculo) {
         for (int i = 0; i < puestos.length; i++) {
             for (int j = 0; j < puestos[i].length; j++) {
@@ -109,12 +113,12 @@ public class Parqueadero {
             }
         }
     }
-//simular un cambio de dia para hacer más facil el calculo de las ganacias
+    //simular un cambio de dia para hacer más facil el calculo de las ganacias
     public void cambiarDia() {
         this.gananciasMensuales += this.gananciasDiarias;
         this.gananciasDiarias = 0;
     }
-//mostrar las ganacias Diarias,Mensuales y por tipos de vehiculos.
+    //mostrar las ganacias Diarias,Mensuales y por tipos de vehiculos.
     public void mostrarGanancias(StringBuilder mensaje) {
         mensaje.append("Ganancias Diarias: ").append(this.gananciasDiarias).append("\n");
         mensaje.append("Ganancias Mensuales: ").append(this.gananciasMensuales).append("\n");

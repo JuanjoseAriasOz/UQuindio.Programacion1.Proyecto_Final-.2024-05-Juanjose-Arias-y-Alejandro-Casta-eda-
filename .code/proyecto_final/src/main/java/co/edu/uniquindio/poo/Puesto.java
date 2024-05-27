@@ -8,6 +8,8 @@ public class Puesto {
     public Puesto(String posicion, boolean ocupado) {
         this.posicion = posicion;
         this.ocupado = ocupado;
+
+        assert posicion != null && !posicion.isBlank();
     }
 
     // Getters

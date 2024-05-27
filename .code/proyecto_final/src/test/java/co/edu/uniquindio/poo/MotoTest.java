@@ -12,8 +12,9 @@ public class MotoTest {
         @Test
         public void DatosCompletosMoto(){
             LOG.info("prueba de datosCompletos de Moto");
-            Parqueadero parqueadero = new Parqueadero("ParqueosInc");
-            assertEquals("ParqueosInc", parqueadero.getNombre());
+            Motoclasica motoclasica = new Motoclasica("HDP 123", "renol", 18);
+            assertEquals("HDP 123", motoclasica.getPlaca());
+            assertEquals("renol", motoclasica.getModelo());
         }
 
 }

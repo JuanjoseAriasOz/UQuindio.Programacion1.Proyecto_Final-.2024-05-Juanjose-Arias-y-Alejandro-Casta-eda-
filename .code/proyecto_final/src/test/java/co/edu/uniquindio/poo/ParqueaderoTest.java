@@ -1,23 +1,34 @@
 package co.edu.uniquindio.poo;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.time.LocalDateTime;
+import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class ParqueaderoTest {
-    private Parqueadero parqueadero;
-    private Carro carro;
-    private Motoclasica motoClasica;
-    private MotoHibrida motoHibrida;
 
+    private static final Logger LOG = Logger.getLogger(ParqueaderoTest.class.getName());
+
+    @Test
+    public void datosCompletosParqueadero(){
+        Parqueadero parqueadero = new Parqueadero("parqueos", 2, 2);
+        StringBuilder gananciasMensaje = new StringBuilder();
+        Carro carro = new Carro("AAA111", "Modelo A");
+        Motoclasica motoClasica = new Motoclasica("BBB222", "Modelo B", 100);
+        MotoHibrida motoHibrida = new MotoHibrida("CCC333", "Modelo C", 150);
+        parqueadero.asignarPuesto(carro, 4, 5000);
+        parqueadero.asignarPuesto(motoClasica, 5, 3000);
+        parqueadero.mostrarGanancias(gananciasMensaje);
+        parqueadero.cambiarDia();
+        parqueadero.asignarPuesto(motoHibrida, 2, 9000);
+        parqueadero.mostrarGanancias(gananciasMensaje);
+
+        
+
+    }
+/**
     public void setUp() {
-        parqueadero = new Parqueadero("Mi Parqueadero", 5, 5);
-        carro = new Carro("AAA111", "Modelo A", "Propietario A");
-        motoClasica = new Motoclasica("BBB222", "Modelo B", "Propietario B", 100);
-        motoHibrida = new MotoHibrida("CCC333", "Modelo C", "Propietario C", 150);
     }
 
     public void testAsignarPuestoCarro() {
@@ -87,7 +98,7 @@ public class ParqueaderoTest {
         assertEquals(29000, parqueadero.obtenerGananciasDiarias(), 0);
     }
 
-   
+  */ 
 
 }
 
