@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
@@ -12,20 +14,32 @@ public class ParqueaderoTest {
 
     @Test
     public void datosCompletosParqueadero(){
+        LOG.info("prueba datos correctos en parqueadero");
         Parqueadero parqueadero = new Parqueadero("parqueos", 2, 2);
         StringBuilder gananciasMensaje = new StringBuilder();
-        Carro carro = new Carro("AAA111", "Modelo A");
-        Motoclasica motoClasica = new Motoclasica("BBB222", "Modelo B", 100);
-        MotoHibrida motoHibrida = new MotoHibrida("CCC333", "Modelo C", 150);
+        Carro carro = new Carro("AAA 111", "A");
+        Motoclasica motoClasica = new Motoclasica("BBB 222", "B", 100);
+        MotoHibrida motoHibrida = new MotoHibrida("CCC 333", "C", 150);
         parqueadero.asignarPuesto(carro, 4, 5000);
         parqueadero.asignarPuesto(motoClasica, 5, 3000);
         parqueadero.mostrarGanancias(gananciasMensaje);
         parqueadero.cambiarDia();
         parqueadero.asignarPuesto(motoHibrida, 2, 9000);
         parqueadero.mostrarGanancias(gananciasMensaje);
+    }
+    @Test
+    public void AsignarPuestoCarroTest(){
+        double tarifaPorHora = 8500;
+        int tiempoEstadia = 2;
+        Parqueadero parqueadero = new Parqueadero("parqueosindustry", 2, 2);
+        Carro carro = new Carro("AAA 111", "A");
 
-        
+        parqueadero.asignarPuesto(carro, tiempoEstadia, tarifaPorHora);
+        Puesto puesto = parqueadero.obtenerPuestoDisponible();
 
+        Assertions.assertEquals("AAA 111", carro.getPlaca());
+        Assertions.assertEquals(parqueadero.obtenerVehiculos().get(0).getHoraEntrada().toLocalDate(), LocalDateTime.now().toLocalDate());
+        assertTrue(!puesto.getOcupado());
     }
 /**
     public void setUp() {
