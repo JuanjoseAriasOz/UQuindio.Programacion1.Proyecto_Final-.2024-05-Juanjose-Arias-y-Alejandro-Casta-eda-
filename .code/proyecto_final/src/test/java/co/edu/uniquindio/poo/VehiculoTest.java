@@ -22,6 +22,7 @@ public class VehiculoTest {
 
     @Test
     public void testOcuparPuesto() {
+        LOG.info("inicio de prueba ocupar puesto");
         Puesto puesto = new Puesto("2-1", false);
         puesto.ocuparPuesto();
         assertTrue(puesto.getOcupado());
@@ -31,7 +32,7 @@ public class VehiculoTest {
 
     @Test
     public void testDesocuparPuesto() {
-        LOG.info("Iniciado prueba");
+        LOG.info("Iniciado prueba de desocupar puesto");
         Puesto puesto = new Puesto("3-1", true);
         puesto.desocuparPuesto();
         assertFalse(puesto.getOcupado());

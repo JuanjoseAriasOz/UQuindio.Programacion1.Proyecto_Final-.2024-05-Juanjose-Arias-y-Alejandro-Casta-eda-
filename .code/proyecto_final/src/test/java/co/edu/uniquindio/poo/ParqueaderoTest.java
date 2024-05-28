@@ -27,8 +27,10 @@ public class ParqueaderoTest {
         parqueadero.asignarPuesto(motoHibrida, 2, 9000);
         parqueadero.mostrarGanancias(gananciasMensaje);
     }
+
     @Test
     public void AsignarPuestoCarroTest(){
+        LOG.info("iniciando prueba asignar carro");
         double tarifaPorHora = 8500;
         int tiempoEstadia = 2;
         Parqueadero parqueadero = new Parqueadero("parqueosindustry", 2, 2);
@@ -47,14 +49,20 @@ public class ParqueaderoTest {
 
     @BeforeEach
     public void testAsignarPuesto() {
+        LOG.info("iniciando prueba de asigar puesto");
         parqueadero = new Parqueadero("Mi Parqueadero", 5, 5);
+        LOG.info("finalizando prueba de asigar puesto");
+
     }
 
     @Test
     public void testAgregarPuesto() {
+        LOG.info("iniciando prueba de agregar puesto");
         Puesto puesto = new Puesto("Puesto 1-1", false);
         parqueadero.agregarPuesto(puesto, 0, 0);
         assertEquals(puesto, parqueadero.getPuesto()[0][0]);
+        LOG.info("finalizando prueba de agregar puesto");
+
     }
     @Test
     public void Filasnulas(){
