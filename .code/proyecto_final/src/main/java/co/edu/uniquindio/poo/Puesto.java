@@ -5,6 +5,11 @@ public class Puesto {
     private boolean ocupado;
 
     // Constructor
+    /**
+     * 
+     * @param posicion
+     * @param ocupado
+     */
     public Puesto(String posicion, boolean ocupado) {
         this.posicion = posicion;
         this.ocupado = ocupado;
